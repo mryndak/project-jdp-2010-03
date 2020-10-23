@@ -35,7 +35,7 @@ public class CartController {
 
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteProductFromCart")
-    public void deleteProductFromTask(@RequestParam Long productId) {
+    public void deleteProductFromCart(@RequestParam Long productId) {
 
     }
 
