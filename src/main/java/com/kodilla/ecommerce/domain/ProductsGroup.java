@@ -4,29 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.kodilla.ecommerce.domain.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity(name = "CARTS")
-public class Cart {
+@Entity(name = "PRODUCTSGROUPS")
+public class ProductsGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CART_ID", unique = true)
+    @Column(name = "PRODUCTSGROUP_ID", unique = true)
     private Long id;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "JOIN_PRODUCT_CART",
-            joinColumns = {@JoinColumn(name = "CART_ID", referencedColumnName = "CART_ID")},
+            name = "JOIN_PRODUCT_PRODUCTSGROUP",
+            joinColumns = {@JoinColumn(name = "PRODUCTSGROUP_ID", referencedColumnName = "PRODUCTSGROUP_ID")},
             inverseJoinColumns = {@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "PRODUCT_ID")}
     )
     List<Product> products = new ArrayList<>();
 
-    //dodać relację do Usera
 }
